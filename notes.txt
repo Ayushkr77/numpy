@@ -1,0 +1,1 @@
+numpy= numerical python, a python library used for numerical computing.
