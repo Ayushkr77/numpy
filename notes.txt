@@ -1,1 +1,3 @@
 numpy= numerical python, a python library used for numerical computing.
+Its widely used in fields which involve heavy data processing such as data science, engineering, ai and ml.
+Under the hood, its written in C thats why its faster 
