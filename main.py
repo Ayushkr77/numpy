@@ -56,51 +56,125 @@
 # -----------------------------------------------------------------------------------------
 
 
-# Slicing in numpy
-# Subscript operator([])
+# # Slicing in numpy
+# # Subscript operator([])
 
-# Row Slicing
+# # Row Slicing
+
+# import numpy as np
+
+# array = np.array([[1,2,3,4],
+#                 [5,6,7,8],
+#                 [9,10,11,12],
+#                 [13,14,15,16]])
+
+# # array[start:end:step]
+
+# print(array[0])
+# print(array[-1])
+
+# print(array[0:2])   # end index is exclusive
+# print(array[1:])     # if we skip end index, it will take up to the end
+
+# print(array[0:4:2])   
+
+# print(array[:])
+
+# print(array[::2])
+# print(array[::-1])
+
+
+
+# # Column Slicing
+
+# print(array[0,0])   # [row, col]
+
+# print(array[:,1])    # in the row part i.e., before ',' we wrote : it means that it is for all the rows
+# print(array[:,-1])
+
+# print(array[:,0:3])   # first 3 columns
+# print(array[:,1:4])    # or array[:,1:]
+
+# print(array[:, ::2])
+
+
+
+# # Row and Col Slicing
+
+# print(array[0:2,0:2])
+# print(array[0:2,2:4])
+# print(array[2:,0:2])
+
+
+
+# -----------------------------------------------------------------------------------------
+
 
 import numpy as np
+# Arithmetic
 
-array = np.array([[1,2,3,4],
-                [5,6,7,8],
-                [9,10,11,12],
-                [13,14,15,16]])
+# Scalar Arithmetic
 
-# array[start:end:step]
+arr=np.array([1,2,3])
 
-print(array[0])
-print(array[-1])
+# arr=arr+2
+# arr*=2
+# print(arr)
 
-print(array[0:2])   # end index is exclusive
-print(array[1:])     # if we skip end index, it will take up to the end
+print(arr+2)
+print(arr-1)
+print(arr*2)
+print(arr/4)
+print(arr**5)
+print(arr)
 
-print(array[0:4:2])   
+# Vectorized Math functions
 
-print(array[:])
+arr1=np.array([1.01,2.5,3.99])
 
-print(array[::2])
-print(array[::-1])
+# arr1=np.sqrt(arr1)
+# print(arr1)
 
+print(np.sqrt(arr1))
+print(np.round(arr1))
+print(np.floor(arr1))
+print(np.ceil(arr1))
 
-
-# Column Slicing
-
-print(array[0,0])   # [row, col]
-
-print(array[:,1])    # in the row part i.e., before ',' we wrote : it means that it is for all the rows
-print(array[:,-1])
-
-print(array[:,0:3])   # first 3 columns
-print(array[:,1:4])    # or array[:,1:]
-
-print(array[:, ::2])
+print(np.pi)
 
 
 
-# Row and Col Slicing
+# Exercise
 
-print(array[0:2,0:2])
-print(array[0:2,2:4])
-print(array[2:,0:2])
+radii=np.array([1,2,3])
+print(f"Area: {np.pi*radii**2}")
+
+
+# Element wise arithmetic
+
+array1=np.array([1,2,3])
+array2=np.array([4,5,6])
+
+# array1=array1+array2
+# print(array1)
+
+print(array1+array2)
+print(array2-array1)
+print(array1*array2)
+print(array1/array2)
+print(array1**array2)
+
+
+
+
+# Comparison Operators
+
+scores=np.array([91,55,100,70,83])
+
+print(scores==100)   # will return a boolean array
+print(scores>=60)
+print(scores<60)
+
+# we can also use conditional assignment, say whoever scored below 60, assign them to 0
+scores[scores<60]=0
+print(scores)
