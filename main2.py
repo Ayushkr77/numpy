@@ -64,28 +64,59 @@
 
 # Filtering: refers to the process of selecting statements from an array that match a given condition
 
-import numpy as np
+# import numpy as np
 
-ages=np.array([[21,17,19,20,16,30,18,65],
-               [39,22,15,99,18,19,20,21]])
+# ages=np.array([[21,17,19,20,16,30,18,65],
+#                [39,22,15,99,18,19,20,21]])
 
-teenagers=ages[ages<18]
-adults=ages[(ages>=18) & (ages<90)]   # & -> AND,  | -> OR
-evens=ages[ages%2==0]
+# teenagers=ages[ages<18]
+# adults=ages[(ages>=18) & (ages<90)]   # & -> AND,  | -> OR
+# evens=ages[ages%2==0]
 
-print(teenagers)    # will be converted to 1-D
-print(adults)
-print(evens)
+# print(teenagers)    # will be converted to 1-D
+# print(adults)
+# print(evens)
 
-print(ages)
+# print(ages)
 
 
-# To preserve the dimension after filtering, we have to use where
+# # To preserve the dimension after filtering, we have to use where
 
-adults1=np.where(ages>=18, ages, 0)   # we can also write np.nan insteasd of 0
-print(adults1)
+# adults1=np.where(ages>=18, ages, 0)   # we can also write np.nan insteasd of 0
+# print(adults1)
 
 
 # -----------------------------------------------------------------------------------------------------
 
 
+# Random numbers
+# Random numbers in NumPy are useful for simulations, modeling, applying random transformations, and testing purposes.
+
+import numpy as np
+
+rng=np.random.default_rng()
+
+print(rng.integers(1,7))  # random no. from 1 to 6
+print(rng.integers(1,100, size=(3,4)))   # basically it will give array of 3x4
+print(rng.integers(low=1, high=100, size=(2,5)))   # can also give keyword arguments
+
+# seed.  explore seed
+rng1=np.random.default_rng(seed=1)   
+print(rng1.integers(low=1, high=100, size=(2,2)))
+
+# np.random.seed(seed=1)   if want to set the seed in uniform too. Explore uniform...
+print(np.random.uniform(low=-1, high=1, size=(3, 2))) # floats between 2 values
+
+
+# Shuffle
+rng2=np.random.default_rng()
+array = np.array([1, 2, 3, 4, 5])
+rng2.shuffle(array)
+print(array)
+
+
+# Random Choice
+rng3=np.random.default_rng()
+fruits = np.array(["🍎", "🍊", "🍌", "🥥", "🍍"])
+print(rng3.choice(fruits))
+print(rng3.choice(fruits, size=(3, 3)))
